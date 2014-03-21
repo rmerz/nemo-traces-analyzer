@@ -18,7 +18,6 @@ def setup_args():
     parser = argparse.ArgumentParser(description='Plot drive test data.')
     parser.add_argument('-l','--list', action='store_true', help='List all data-set.')
     parser.add_argument('-s','--static', action='store_true', help='Keep samples with zero velocity.')
-    parser.add_argument('-a','--access', type=str, default='LTE', help='Select LTE or HSPA. Default is LTE.')
     parser.add_argument('-d','--select', type=int,
                         help='Select a particular data-set to display')
     parser.add_argument('library',type=str,
