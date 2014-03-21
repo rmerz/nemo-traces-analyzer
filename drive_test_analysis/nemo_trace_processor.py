@@ -167,22 +167,22 @@ def process_lte_prb_util_bw(df):
     _process_lte_prb_util_bw(df,15)
     _process_lte_prb_util_bw(df,20)
 
-def process_rs_snr(df):
+def process_lte_rs_snr(df):
     df['RS SNR/Antenna port - 1'] = df['RS SNR/Antenna port - 1'].replace(to_replace=[' n/a','n/a'],value=np.nan).astype(float)
     df['RS SNR/Antenna port - 2'] = df['RS SNR/Antenna port - 2'].replace(to_replace=[' n/a','n/a'],value=np.nan).astype(float)
 
-def process_rs_snr_full(df):
+def process_lte_rs_snr_full(df):
     df['RS SNR/Antenna port - 1 full'] = df['RS SNR/Antenna port - 1'].interpolate(method='nearest')
     df['RS SNR/Antenna port - 2 full'] = df['RS SNR/Antenna port - 2'].interpolate(method='nearest')
 
-def process_rs_snr_bw(df):
+def process_lte_rs_snr_bw(df):
     df['RS SNR/Antenna port - 1 10'] = df[df['DL bandwidth full']==10]['RS SNR/Antenna port - 1']
     df['RS SNR/Antenna port - 1 15'] = df[df['DL bandwidth full']==15]['RS SNR/Antenna port - 1']
 
     df['RS SNR/Antenna port - 2 10'] = df[df['DL bandwidth full']==10]['RS SNR/Antenna port - 2']
     df['RS SNR/Antenna port - 2 15'] = df[df['DL bandwidth full']==15]['RS SNR/Antenna port - 2']
 
-def process_rsrp(df):
+def process_lte_rsrp(df):
     df['RSRP (serving)'] = df['RSRP (serving)'].replace(to_replace=[' n/a','n/a'],value=np.nan).astype(float)
     if 'RSRP/Antenna port - 1' in list(df.columns):
         df['RSRP/Antenna port - 1'] = df['RSRP/Antenna port - 1'].replace(to_replace=[' n/a','n/a'],value=np.nan).astype(float)
@@ -192,11 +192,11 @@ def process_rsrp(df):
         df['RSRP/Antenna port - 2'] = df['RSRP (serving)']
 
 
-def process_rsrp_full(df):
+def process_lte_rsrp_full(df):
     df['RSRP/Antenna port - 1 full'] = df['RSRP/Antenna port - 1'].interpolate()
     df['RSRP/Antenna port - 2 full'] = df['RSRP/Antenna port - 2'].interpolate()
 
-def process_rsrp_bw(df):
+def process_lte_rsrp_bw(df):
     df['RSRP (serving) 10'] = df[df['DL bandwidth full']==10]['RSRP (serving)']
     df['RSRP (serving) 15'] = df[df['DL bandwidth full']==15]['RSRP (serving)']
 
@@ -206,26 +206,26 @@ def process_rsrp_bw(df):
     df['RSRP/Antenna port - 2 10'] = df[df['DL bandwidth full']==10]['RSRP/Antenna port - 2']
     df['RSRP/Antenna port - 2 15'] = df[df['DL bandwidth full']==15]['RSRP/Antenna port - 2']
 
-def process_rsrp_rs_snr(df):
-    process_rsrp(df)
-    process_rs_snr(df)
+def process_lte_rsrp_rs_snr(df):
+    process_lte_rsrp(df)
+    process_lte_rs_snr(df)
 
-def process_rsrp_rs_snr_full(df):
-    process_rsrp_full(df)
-    process_rs_snr_full(df)
+def process_lte_rsrp_rs_snr_full(df):
+    process_lte_rsrp_full(df)
+    process_lte_rs_snr_full(df)
 
-def process_rs_snr_average_full(df):
+def process_lte_rs_snr_average_full(df):
     f_avg = lambda x: 10*np.log10((np.power(10,x[0]/10)+np.power(10,x[1]/10))/2)
     df['RS SNR'] = df[['RS SNR/Antenna port - 1','RS SNR/Antenna port - 2']].apply(f_avg,axis=1)
     df['RS SNR full'] = df[['RS SNR/Antenna port - 1 full','RS SNR/Antenna port - 2 full']].apply(f_avg,axis=1)
 
-def process_rs_snr_average_full_round(df):
+def process_lte_rs_snr_average_full_round(df):
     f_round = lambda x : np.round(x)
     df['RS SNR full round'] = df['RS SNR full'].apply(f_round)
 
-def process_rsrp_rs_snr_bw(df):
-    process_rsrp_bw(df)
-    process_rs_snr_bw(df)
+def process_lte_rsrp_rs_snr_bw(df):
+    process_lte_rsrp_bw(df)
+    process_lte_rs_snr_bw(df)
 
 def _get_pdsch_prb_max_index(df):
     return len(df.filter(regex='PDSCH PRB percentage').columns.tolist())
@@ -254,7 +254,7 @@ def _process_lte_prb_avg(df):
     df['PRB Avg DL full'] = df['PRB Avg DL full'].interpolate(method='nearest')
     # print(df['PRB Avg DL full'].head(50))
 
-def process_lte_se(df):
+def process_lte_se_rb(df):
     #print(df[['Application throughput downlink','PRB utilization DL full']].dropna().head(100))
 
     _process_lte_prb_avg(df)
