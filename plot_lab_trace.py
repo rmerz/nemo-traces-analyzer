@@ -45,7 +45,7 @@ def main(args):
     ntp.process_data(data,ntp.process_lte_app_bw_prb_util_bw15)
     # Spectral efficiency
     ntp.process_data(data,ntp.process_se_bw_norm)
-    ntp.process_data(data,ntp.process_lte_se)
+    ntp.process_data(data,ntp.process_lte_se_rb)
 
     column_list = ['DL bandwidth','DL bandwidth full',
                    'Application throughput downlink',
