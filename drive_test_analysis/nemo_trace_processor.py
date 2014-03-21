@@ -123,10 +123,16 @@ def process_lte_prb_util_interp(df):
     df['PRB utilization DL full nearest'] = df['PRB utilization DL'].interpolate(method='nearest')
     df['PRB utilization DL full linear'] = df['PRB utilization DL'].interpolate(method='linear')
 
+def process_lte_pdcp_throughput(df):
+    df['PDCP downlink throughput'].replace(to_replace=[' n/a','n/a'],value=np.nan,inplace=True)
+
+def process_lte_app_throughput(df):
+    df['Application throughput downlink'].replace(to_replace=[' n/a','n/a'],value=np.nan,inplace=True)
+
 def process_lte_app_bw_prb_util(df):
     process_lte_bw(df)
     process_lte_prb_util(df)
-    df['Application throughput downlink'].replace(to_replace=[' n/a','n/a'],value=np.nan,inplace=True)
+    process_lte_app_throughput(df)
 
     # Normalize throughput with respect to PRB utilization
     f_norm = lambda x: x[0]/(x[1]/100)
