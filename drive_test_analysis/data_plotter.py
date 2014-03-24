@@ -26,13 +26,13 @@ def plot_hist2d(data_0,data_1,label_0,label_1,
 
 def plot_hist(data_0,label_0,
               unit_0,bins=50,
-              alpha=.3):
+              alpha=.3,normed=True):
     # http://matplotlib.org/examples/color/colormaps_reference.html
     plt.hist(data_0.values,
              bins=bins,
              color='Magenta',
              alpha=alpha,
-             normed=True
+             normed=normed
          )
     plt.grid(True)
     plt.xlabel(label_0+' [{}]'.format(unit_0))
