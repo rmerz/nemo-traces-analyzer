@@ -37,7 +37,7 @@ def main(args):
     data = tl.load_data_file(data_file_list,args.select)
 
     if not args.static:
-        logging.debug('Remove non-zero velocity samples')
+        logging.debug('Remove zero velocity samples')
         data = ntp.remove_non_positive_velocity_samples(data)
 
     if args.ue == 'e398':
