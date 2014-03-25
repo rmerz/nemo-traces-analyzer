@@ -20,7 +20,7 @@ def setup_args():
     parser.add_argument('-s','--static', action='store_true', help='Keep samples with zero velocity.')
     parser.add_argument('-d','--select', type=int,
                         help='Select a particular data-set to display')
-    parser.add_argument('library',type=str,
+    parser.add_argument('library',type=str, nargs='+',
                         help='Select a particular library to pull data from')
     parser.add_argument('--print', type=str, help='Print figure to file.')
     args   = parser.parse_args()

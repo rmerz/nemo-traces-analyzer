@@ -19,7 +19,7 @@ def setup_args():
     parser.add_argument('-l','--list', action='store_true', help='List all data-set.')
     parser.add_argument('-d','--select', type=int,
                         help='Select a particular data-set to display')
-    parser.add_argument('library',type=str,
+    parser.add_argument('library',type=str, nargs='+',
                         help='Select a particular library to pull data from')
     parser.add_argument('-u','--ue',type=str, default='e398',
                         help='What UE was used [e398|e3276]. Default is e398 ')
