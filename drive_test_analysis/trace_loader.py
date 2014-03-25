@@ -8,16 +8,17 @@ def _prepend_data_directory_location(data_directory_location,data_list):
     # In place modfication thanks to x[0:]
     data_list[0:] = [data_directory_location+'/'+x for x in data_list[0:]]
 
-def get_data_file_list(data_directory_location=None):
-    """Returns a dictionary with drive test files
+def get_data_file_list(data_directory_location_list=None):
+    """Returns a list with path of drive test files to load
 
-    data_directory_location: location of the data directory containing
-                             the drive test files
+    data_directory_location_list: list of directories containing the drive test files
 
     """
     logging.debug('Return data-file list')
-    drive_test_data_list = [os.path.join(data_directory_location,filename) for filename in os.listdir(data_directory_location) \
-                            if re.search(r'\.csv.gz$|\.csv$', filename, re.IGNORECASE)]
+    drive_test_data_list = list()
+    for data_directory_location in data_directory_location_list:
+        drive_test_data_list += [os.path.join(data_directory_location,filename) for filename in os.listdir(data_directory_location) \
+                                 if re.search(r'\.csv.gz$|\.csv$', filename, re.IGNORECASE)]
     return drive_test_data_list
 
 def load_data_file(data_file_list,k=None):
