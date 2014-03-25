@@ -55,6 +55,8 @@ def main(args):
 
     print(df['RS SNR/Antenna port - 1'].describe())
     print(df['RS SNR/Antenna port - 2'].describe())
+    print('95% percentile for AP 1 and 2: {:.1f}, {:.1f} dB'.format(np.percentile(df['RS SNR/Antenna port - 1'].dropna(),95),np.percentile(df['RS SNR/Antenna port - 2'].dropna(),95)))
+    print('99% percentile for AP 1 and 2: {:.1f}, {:.1f} dB'.format(np.percentile(df['RS SNR/Antenna port - 1'].dropna(),99),np.percentile(df['RS SNR/Antenna port - 2'].dropna(),99)))
 
     plt.ion()
     plt.figure()
