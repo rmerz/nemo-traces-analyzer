@@ -120,7 +120,7 @@ def plot_ecdf(data,x,label,unit):
     ecdf = ECDF(data.values)
 
     median = np.median(data.values)
-    print(median)
+
     plt.plot(x,ecdf(x),
              lw=2.0,
              c='m',
@@ -144,7 +144,7 @@ def plot_ecdf_pair(data_0,
                    unit):
     ecdf = ECDF(data_0.values)
     median = np.median(data_0.values)
-    print(median)
+
     plt.plot(x,ecdf(x),
              lw=2.0,
              c='m',
@@ -152,7 +152,7 @@ def plot_ecdf_pair(data_0,
 
     ecdf = ECDF(data_1.values)
     median = np.median(data_1.values)
-    print(median)
+
     plt.plot(x,ecdf(x),
              lw=2.0,
              c='Orange',
@@ -177,7 +177,7 @@ def plot_ecdf_triplet(data_0,data_1,data_2,x,
                       unit=None,plot_info=True):
     ecdf = ECDF(data_0.values)
     median = np.median(data_0.values)
-    print(median)
+
     plt.plot(x,ecdf(x),
              lw=2.0,
              c='m',
@@ -185,7 +185,7 @@ def plot_ecdf_triplet(data_0,data_1,data_2,x,
 
     ecdf = ECDF(data_1.values)
     median = np.median(data_1.values)
-    print(median)
+
     plt.plot(x,ecdf(x),
              lw=2.0,
              c='Blue',
@@ -193,7 +193,7 @@ def plot_ecdf_triplet(data_0,data_1,data_2,x,
 
     ecdf = ECDF(data_2.values)
     median = np.median(data_2.values)
-    print(median)
+
     plt.plot(x,ecdf(x),
              lw=2.0,
              c='Orange',
