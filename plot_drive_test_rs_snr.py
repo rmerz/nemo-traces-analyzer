@@ -62,18 +62,28 @@ def main(args):
     plt.figure()
     plt.subplot2grid((2,1), (0,0))
     x = np.linspace(-15,37,53)
-    dpl.plot_ecdf_triplet(df['RS SNR/Antenna port - 1 10'].dropna(),
-                          df['RS SNR/Antenna port - 1'].dropna(),
-                          df['RS SNR/Antenna port - 1 15'].dropna(),x,
-                          'RS-SNR AP1 10 MHz','RS-SNR AP1','RS-SNR AP1 15 MHz','dB')
+    if len(df['RS SNR/Antenna port - 1 15'].dropna()) > 0:
+        dpl.plot_ecdf_triplet(df['RS SNR/Antenna port - 1 10'].dropna(),
+                              df['RS SNR/Antenna port - 1'].dropna(),
+                              df['RS SNR/Antenna port - 1 15'].dropna(),x,
+                              'RS-SNR AP1 10 MHz','RS-SNR AP1','RS-SNR AP1 15 MHz','dB')
+    else:
+        dpl.plot_ecdf_pair(df['RS SNR/Antenna port - 1 10'].dropna(),
+                              df['RS SNR/Antenna port - 1'].dropna(),x,
+                              'RS-SNR AP1 10 MHz','RS-SNR AP1','dB')
     plt.xlim([-12,33])
     if args.blind:
         plt.xticks([])
     plt.subplot2grid((2,1), (1,0))
-    dpl.plot_ecdf_triplet(df['RS SNR/Antenna port - 2 10'].dropna(),
-                          df['RS SNR/Antenna port - 2'].dropna(),
-                          df['RS SNR/Antenna port - 2 15'].dropna(),x,
-                          'RS-SNR AP2 10 MHz','RS-SNR AP2','RS-SNR AP2 15 MHz','dB')
+    if len(df['RS SNR/Antenna port - 2 15'].dropna()) > 0:
+        dpl.plot_ecdf_triplet(df['RS SNR/Antenna port - 2 10'].dropna(),
+                              df['RS SNR/Antenna port - 2'].dropna(),
+                              df['RS SNR/Antenna port - 2 15'].dropna(),x,
+                              'RS-SNR AP2 10 MHz','RS-SNR AP2','RS-SNR AP2 15 MHz','dB')
+    else:
+        dpl.plot_ecdf_pair(df['RS SNR/Antenna port - 2 10'].dropna(),
+                           df['RS SNR/Antenna port - 2'].dropna(),x,
+                              'RS-SNR AP2 10 MHz','RS-SNR AP2','dB')
     plt.xlim([-12,33])
     if args.blind:
         plt.xticks([])
