@@ -456,6 +456,17 @@ def _get_pdsch_mcs_64qam(df,pdsch_max_index,pdsch_mcs_per):
         df['mcs_'+str(index+17)] = np.nan
         df['mcs_'+str(index+17)].iloc[df['valid_percentage'].dropna().index] = mcs_per_0[index+17,:]/normalization_factor
 
+def _get_pdsch_mcs_16_64qam(df,pdsch_max_index,pdsch_mcs_per):
+    mcs_per_0 = _pre_pdsch_mcs(df,pdsch_max_index,pdsch_mcs_per)
+
+    # Need to normalize
+    normalization_factor = np.sum(mcs_per_0[10:29,:],axis=0)/100
+
+    for index in np.arange(0,19):
+        df['mcs_'+str(index+10)] = np.nan
+        df['mcs_'+str(index+10)].iloc[df['valid_percentage'].dropna().index] = mcs_per_0[index+10,:]/normalization_factor
+
+
 def process_pdsch_mcs_rank_1(df):
     pdsch_max_index = _get_pdsch_max_index(df)
     pdsch_rank_1,_ = _get_pdsch_rank_data(df,pdsch_max_index)
@@ -495,6 +506,12 @@ def process_pdsch_mcs_64qam(df):
     _,pdsch_mcs_per = _get_pdsch_mcs_per(df,pdsch_max_index)
 
     _get_pdsch_mcs_64qam(df,pdsch_max_index,pdsch_mcs_per)
+
+def process_pdsch_mcs_16_64qam(df):
+    pdsch_max_index = _get_pdsch_max_index(df)
+    _,pdsch_mcs_per = _get_pdsch_mcs_per(df,pdsch_max_index)
+
+    _get_pdsch_mcs_16_64qam(df,pdsch_max_index,pdsch_mcs_per)
 
 def _extract_info(w_sorted,v_sorted,
                   print_debug=False):
