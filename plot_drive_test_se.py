@@ -65,6 +65,14 @@ def main(args):
 
     print(df['SE'].describe())
     print(df['SE norm'].describe())
+
+    # Remove outliers because of bandwidth normalization issues
+    df['SE norm'][df['SE norm'] > 7.5] = np.nan
+
+    print('90% percentile for SE norm: {:.1f} bit/s/Hz'.format(np.percentile(df['SE norm'].dropna(),90)))
+    print('95% percentile for SE norm: {:.1f} bit/s/Hz'.format(np.percentile(df['SE norm'].dropna(),95)))
+    print('99% percentile for SE norm: {:.1f} bit/s/Hz'.format(np.percentile(df['SE norm'].dropna(),99)))
+
     print(df['SE 10 norm'].describe())
     print(df['SE 15 norm'].describe())
     print(df['SE 20 norm'].describe())
