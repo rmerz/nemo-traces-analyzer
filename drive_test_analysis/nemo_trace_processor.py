@@ -432,26 +432,9 @@ def _get_pdsch_mcs_qpsk(df,pdsch_max_index,pdsch_mcs_per):
     # Need to normalize
     normalization_factor = np.sum(mcs_per_0[0:11,:],axis=0)/100
 
-    df['mcs_0'] = np.nan
-    df['mcs_0'].iloc[df['valid_percentage'].dropna().index] = mcs_per_0[0,:]/normalization_factor
-    df['mcs_1'] = np.nan
-    df['mcs_1'].iloc[df['valid_percentage'].dropna().index] = mcs_per_0[1,:]/normalization_factor
-    df['mcs_2'] = np.nan
-    df['mcs_2'].iloc[df['valid_percentage'].dropna().index] = mcs_per_0[2,:]/normalization_factor
-    df['mcs_3'] = np.nan
-    df['mcs_3'].iloc[df['valid_percentage'].dropna().index] = mcs_per_0[3,:]/normalization_factor
-    df['mcs_4'] = np.nan
-    df['mcs_4'].iloc[df['valid_percentage'].dropna().index] = mcs_per_0[4,:]/normalization_factor
-    df['mcs_5'] = np.nan
-    df['mcs_5'].iloc[df['valid_percentage'].dropna().index] = mcs_per_0[5,:]/normalization_factor
-    df['mcs_6'] = np.nan
-    df['mcs_6'].iloc[df['valid_percentage'].dropna().index] = mcs_per_0[6,:]/normalization_factor
-    df['mcs_7'] = np.nan
-    df['mcs_7'].iloc[df['valid_percentage'].dropna().index] = mcs_per_0[7,:]/normalization_factor
-    df['mcs_8'] = np.nan
-    df['mcs_8'].iloc[df['valid_percentage'].dropna().index] = mcs_per_0[8,:]/normalization_factor
-    df['mcs_9'] = np.nan
-    df['mcs_9'].iloc[df['valid_percentage'].dropna().index] = mcs_per_0[9,:]/normalization_factor
+    for index in np.arange(0,10):
+        df['mcs_'+str(index)] = np.nan
+        df['mcs_'+str(index)].iloc[df['valid_percentage'].dropna().index] = mcs_per_0[index,:]/normalization_factor
 
 def _get_pdsch_mcs_16qam(df,pdsch_max_index,pdsch_mcs_per):
     mcs_per_0 = _pre_pdsch_mcs(df,pdsch_max_index,pdsch_mcs_per)
@@ -459,20 +442,9 @@ def _get_pdsch_mcs_16qam(df,pdsch_max_index,pdsch_mcs_per):
     # Need to normalize
     normalization_factor = np.sum(mcs_per_0[10:17,:],axis=0)/100
 
-    df['mcs_10'] = np.nan
-    df['mcs_10'].iloc[df['valid_percentage'].dropna().index] = mcs_per_0[10,:]/normalization_factor
-    df['mcs_11'] = np.nan
-    df['mcs_11'].iloc[df['valid_percentage'].dropna().index] = mcs_per_0[11,:]/normalization_factor
-    df['mcs_12'] = np.nan
-    df['mcs_12'].iloc[df['valid_percentage'].dropna().index] = mcs_per_0[12,:]/normalization_factor
-    df['mcs_13'] = np.nan
-    df['mcs_13'].iloc[df['valid_percentage'].dropna().index] = mcs_per_0[13,:]/normalization_factor
-    df['mcs_14'] = np.nan
-    df['mcs_14'].iloc[df['valid_percentage'].dropna().index] = mcs_per_0[14,:]/normalization_factor
-    df['mcs_15'] = np.nan
-    df['mcs_15'].iloc[df['valid_percentage'].dropna().index] = mcs_per_0[15,:]/normalization_factor
-    df['mcs_16'] = np.nan
-    df['mcs_16'].iloc[df['valid_percentage'].dropna().index] = mcs_per_0[16,:]/normalization_factor
+    for index in np.arange(0,7):
+        df['mcs_'+str(index+10)] = np.nan
+        df['mcs_'+str(index+10)].iloc[df['valid_percentage'].dropna().index] = mcs_per_0[index+10,:]/normalization_factor
 
 def _get_pdsch_mcs_64qam(df,pdsch_max_index,pdsch_mcs_per):
     mcs_per_0 = _pre_pdsch_mcs(df,pdsch_max_index,pdsch_mcs_per)
@@ -480,30 +452,9 @@ def _get_pdsch_mcs_64qam(df,pdsch_max_index,pdsch_mcs_per):
     # Need to normalize
     normalization_factor = np.sum(mcs_per_0[17:29,:],axis=0)/100
 
-    df['mcs_17'] = np.nan
-    df['mcs_17'].iloc[df['valid_percentage'].dropna().index] = mcs_per_0[17,:]/normalization_factor
-    df['mcs_18'] = np.nan
-    df['mcs_18'].iloc[df['valid_percentage'].dropna().index] = mcs_per_0[18,:]/normalization_factor
-    df['mcs_19'] = np.nan
-    df['mcs_19'].iloc[df['valid_percentage'].dropna().index] = mcs_per_0[19,:]/normalization_factor
-    df['mcs_20'] = np.nan
-    df['mcs_20'].iloc[df['valid_percentage'].dropna().index] = mcs_per_0[20,:]/normalization_factor
-    df['mcs_21'] = np.nan
-    df['mcs_21'].iloc[df['valid_percentage'].dropna().index] = mcs_per_0[21,:]/normalization_factor
-    df['mcs_22'] = np.nan
-    df['mcs_22'].iloc[df['valid_percentage'].dropna().index] = mcs_per_0[22,:]/normalization_factor
-    df['mcs_23'] = np.nan
-    df['mcs_23'].iloc[df['valid_percentage'].dropna().index] = mcs_per_0[23,:]/normalization_factor
-    df['mcs_24'] = np.nan
-    df['mcs_24'].iloc[df['valid_percentage'].dropna().index] = mcs_per_0[24,:]/normalization_factor
-    df['mcs_25'] = np.nan
-    df['mcs_25'].iloc[df['valid_percentage'].dropna().index] = mcs_per_0[25,:]/normalization_factor
-    df['mcs_26'] = np.nan
-    df['mcs_26'].iloc[df['valid_percentage'].dropna().index] = mcs_per_0[26,:]/normalization_factor
-    df['mcs_27'] = np.nan
-    df['mcs_27'].iloc[df['valid_percentage'].dropna().index] = mcs_per_0[27,:]/normalization_factor
-    df['mcs_28'] = np.nan
-    df['mcs_28'].iloc[df['valid_percentage'].dropna().index] = mcs_per_0[28,:]/normalization_factor
+    for index in np.arange(0,12):
+        df['mcs_'+str(index+17)] = np.nan
+        df['mcs_'+str(index+17)].iloc[df['valid_percentage'].dropna().index] = mcs_per_0[index+17,:]/normalization_factor
 
 def process_pdsch_mcs_rank_1(df):
     pdsch_max_index = _get_pdsch_max_index(df)
