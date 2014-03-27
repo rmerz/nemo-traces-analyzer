@@ -217,6 +217,59 @@ def plot_ecdf_triplet(data_0,data_1,data_2,x,
         plt.legend(loc='upper left',prop={'size':10})
     plt.tight_layout()
 
+def plot_ecdf_quad(data_0,data_1,data_2,data_3,x,
+                   label_0=None,label_1=None,label_2=None,label_3=None,
+                   unit=None,plot_info=True):
+    ecdf = ECDF(data_0.values)
+    median = np.median(data_0.values)
+
+    plt.plot(x,ecdf(x),
+             lw=2.0,
+             c='m',
+             label=label_0+': median {:.1f} {}'.format(median,unit))
+
+    ecdf = ECDF(data_1.values)
+    median = np.median(data_1.values)
+
+    plt.plot(x,ecdf(x),
+             lw=2.0,
+             c='Blue',
+             label=label_1+': median {:.1f} {}'.format(median,unit))
+
+    ecdf = ECDF(data_2.values)
+    median = np.median(data_2.values)
+
+    plt.plot(x,ecdf(x),
+             lw=2.0,
+             c='Orange',
+             label=label_2+': median {:.1f} {}'.format(median,unit))
+
+    ecdf = ECDF(data_3.values)
+    median = np.median(data_3.values)
+
+    plt.plot(x,ecdf(x),
+             lw=2.0,
+             c='Red',
+             label=label_3+': median {:.1f} {}'.format(median,unit))
+
+    plt.plot(x,0.5*np.ones(len(x)),
+             lw=2.0,
+             ls='--',
+             c='b',
+             alpha=.3)
+
+    plt.grid()
+    plt.tick_params(axis='both', which='major', labelsize=9)
+    if plot_info:
+        if label_0 is not None:
+            plt.xlabel(label_0+'/'+label_1+'/'+label_2+'/'+label_3+' [{}]'.format(unit))
+        else:
+            plt.xlabel('[{}]'.format(unit))
+        plt.ylabel('ECDF')
+        plt.ylim([0,1.05])
+        plt.legend(loc='upper left',prop={'size':10})
+    plt.tight_layout()
+
 def plot_density(data,x,label,unit):
     density = gaussian_kde(data)
     density.covariance_factor = lambda : .1

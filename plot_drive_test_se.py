@@ -108,6 +108,27 @@ def main(args):
     if args.print:
         plt.savefig(args.print[1],dpi=300,bbox_inches='tight')
 
+    plt.figure()
+    if len(df['SE 15 norm'].dropna()) > 0:
+        dpl.plot_ecdf_quad(df['SE 10 norm'].dropna(),
+                           df['SE norm'].dropna(),
+                           df['SE 15 norm'].dropna(),
+                           df['SE'].dropna(),x,
+                           'SE 10 MHz (PRB norm.)',
+                           'SE (PRB norm.)',
+                           'SE 15 MHz (PRB norm.)','SE',
+                           'bit/s/Hz')
+        plt.xlabel('[bit/s/Hz]')
+    else:
+        dpl.plot_ecdf_triplet(df['SE 10 norm'].dropna(),
+                              df['SE norm'].dropna(),df['SE'].dropna(),x,
+                              'Spectral efficiency 10 MHz (PRB norm.)\n',
+                              'Spectral efficiency (PRB norm.)\n','Spectral efficiency',
+                              'bit/s/Hz')
+    plt.legend(loc=0,prop={'size':10})
+    if args.print:
+        plt.savefig(args.print[2],dpi=300,bbox_inches='tight')
+
     input('Press any key')
     
 
