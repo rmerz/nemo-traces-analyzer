@@ -37,7 +37,7 @@ def main(args):
 
     if not args.static:
         logging.debug('Remove zero velocity samples')
-        data = dpr.remove_non_positive_velocity_samples(data)
+        data = ntp.remove_non_positive_velocity_samples(data)
 
     # Get basic data
     ntp.process_data(data,ntp.process_lte_bw)
@@ -66,6 +66,7 @@ def main(args):
                           df['RS SNR/Antenna port - 1'].dropna(),
                           df['RS SNR/Antenna port - 1 15'].dropna(),x,
                           'RS-SNR AP1 10 MHz','RS-SNR AP1','RS-SNR AP1 15 MHz','dB')
+    plt.xlim([-12,33])
     if args.blind:
         plt.xticks([])
     plt.subplot2grid((2,1), (1,0))
@@ -73,6 +74,7 @@ def main(args):
                           df['RS SNR/Antenna port - 2'].dropna(),
                           df['RS SNR/Antenna port - 2 15'].dropna(),x,
                           'RS-SNR AP2 10 MHz','RS-SNR AP2','RS-SNR AP2 15 MHz','dB')
+    plt.xlim([-12,33])
     if args.blind:
         plt.xticks([])
     if args.print:
