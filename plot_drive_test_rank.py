@@ -22,7 +22,7 @@ def setup_args():
                         help='Select a particular data-set to display')
     parser.add_argument('library',type=str, nargs='+',
                         help='Select a particular library to pull data from')
-    parser.add_argument('--print', type=str, help='Print figure to file.')
+    parser.add_argument('--print', type=str, nargs='+', help='Print figure to file.')
     args   = parser.parse_args()
     return args
 
@@ -90,7 +90,25 @@ def main(args):
 
     plt.tight_layout()
     if args.print:
-        plt.savefig(args.print,dpi=300,bbox_inches='tight')
+        plt.savefig(args.print[0],dpi=300,bbox_inches='tight')
+
+    plt.figure()
+    plt.subplot2grid((1,2), (0,0),colspan=1)
+    plt.boxplot((req_rank.values[:,0],req_rank.values[:,1]),widths=0.5)
+    plt.ylim([0,102])
+    plt.xticks([1,2],['Rank 1','Rank 2'])
+    plt.xlabel('Requested by UE')
+    plt.grid(True)
+
+    plt.subplot2grid((1,2), (0,1),colspan=1)
+    plt.boxplot((df.rank_1_per[rank_index],df.rank_2_per[rank_index]),widths=0.5)
+    plt.ylim([0,102])
+    plt.xticks([1,2],['Rank 1','Rank 2'])
+    plt.xlabel('Effective')
+    plt.grid(True)
+    plt.tight_layout()
+    if args.print:
+        plt.savefig(args.print[1],dpi=300,bbox_inches='tight')
 
     input('press any key')
 
