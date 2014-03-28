@@ -14,7 +14,8 @@ def plot_hist2d(data_0,data_1,label_0,label_1,
                #cmap=cm.cool
                #cmap=cm.PuRd
                #cmap=cm.Purples
-               cmap=cm.BuPu
+               #cmap=cm.BuPu
+               cmap=cm.binary
                #cmap=cm.coolwarm
                #alpha=.3,
                )
