@@ -38,10 +38,6 @@ def main(args):
         logging.debug('Remove zero velocity samples')
         data = ntp.remove_non_positive_velocity_samples(data)
 
-    if not args.static:
-        logging.debug('Remove non-zero velocity samples')
-        data = ntp.remove_non_positive_velocity_samples(data)
-
     # Get basic data
     ntp.process_data(data,ntp.process_velocity)
     ntp.process_data(data,ntp.process_lte_bw)
