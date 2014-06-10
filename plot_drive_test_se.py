@@ -133,7 +133,8 @@ def main(args):
                               'Spectral efficiency 10 MHz (PRB norm.)\n',
                               'Spectral efficiency (PRB norm.)\n','Spectral efficiency',
                               'bit/s/Hz')
-    plt.legend(loc=0)
+    plt.legend (loc='best')
+    plt.tight_layout ()
     if args.print:
         plt.savefig(args.print[2],dpi=300,bbox_inches='tight')
 
