@@ -62,7 +62,7 @@ def plot_scatter_pair(data_0a,data_1a,label_0a,label_1a,
     plt.tick_params(axis='both', which='major', labelsize=9)
     #plt.xlabel(label_0+' [{}]'.format(unit_0))
     #plt.ylabel(label_1+' [{}]'.format(unit_1))
-    plt.legend(loc='upper left',prop={'size':10})
+    plt.legend(loc='upper left')
     plt.tight_layout()
 
 def plot_scatter(data_0,data_1,label_0,label_1,
@@ -78,7 +78,7 @@ def plot_scatter(data_0,data_1,label_0,label_1,
     plt.tick_params(axis='both', which='major', labelsize=9)
     plt.xlabel(label_0+' [{}]'.format(unit_0))
     plt.ylabel(label_1+' [{}]'.format(unit_1))
-    plt.legend(loc='upper left',prop={'size':10})
+    plt.legend(loc='upper left')
     plt.tight_layout()
 
 def plot_ts(data_0,label_0,unit,marker_size=10,ylim=None):
@@ -93,7 +93,7 @@ def plot_ts(data_0,label_0,unit,marker_size=10,ylim=None):
         plt.ylim(ylim)
     plt.tick_params(axis='both', which='major', labelsize=9)
     plt.ylabel(label_0+' [{}]'.format(unit))
-    plt.legend(loc='upper left',prop={'size':10})
+    plt.legend(loc='upper left')
     plt.tight_layout()
 
 def plot_ts_pair(data_0,data_1,label_0,label_1,unit,marker_size=10,ylim=None):
@@ -114,7 +114,7 @@ def plot_ts_pair(data_0,data_1,label_0,label_1,unit,marker_size=10,ylim=None):
         plt.ylim(ylim)
     plt.tick_params(axis='both', which='major', labelsize=9)
     plt.xlabel(label_0+'/'+label_1+' [{}]'.format(unit))
-    plt.legend(loc='upper left',prop={'size':10})
+    plt.legend(loc='upper left')
     plt.tight_layout()
 
 def plot_ecdf(data,x,label,unit):
@@ -136,7 +136,7 @@ def plot_ecdf(data,x,label,unit):
     plt.xlabel(label+' [{}]'.format(unit))
     plt.ylabel('ECDF')
     plt.ylim([0,1.05])
-    plt.legend(loc='upper left',prop={'size':10})
+    plt.legend(loc='upper left')
     plt.tight_layout()
 
 def plot_ecdf_pair(data_0,
@@ -170,7 +170,7 @@ def plot_ecdf_pair(data_0,
     plt.xlabel(label_0+'/'+label_1+' [{}]'.format(unit))
     plt.ylabel('ECDF')
     plt.ylim([0,1.05])
-    plt.legend(loc='upper left',prop={'size':10})
+    plt.legend(loc='upper left')
     plt.tight_layout()
 
 def plot_ecdf_triplet(data_0,data_1,data_2,x,
@@ -215,7 +215,7 @@ def plot_ecdf_triplet(data_0,data_1,data_2,x,
             plt.xlabel('[{}]'.format(unit))
         plt.ylabel('ECDF')
         plt.ylim([0,1.05])
-        plt.legend(loc='upper left',prop={'size':10})
+        plt.legend(loc='upper left')
     plt.tight_layout()
 
 def plot_ecdf_quad(data_0,data_1,data_2,data_3,x,
@@ -268,7 +268,7 @@ def plot_ecdf_quad(data_0,data_1,data_2,data_3,x,
             plt.xlabel('[{}]'.format(unit))
         plt.ylabel('ECDF')
         plt.ylim([0,1.05])
-        plt.legend(loc='upper left',prop={'size':10})
+        plt.legend(loc='upper left')
     plt.tight_layout()
 
 def plot_density(data,x,label,unit):
