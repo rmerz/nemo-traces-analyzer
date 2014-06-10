@@ -64,7 +64,7 @@ def main(args):
                           df['PRB utilization DL 10'].dropna(),
                           df['PRB utilization DL 15'].dropna(),x,
                           'PRB util.','PRB util. 10 MHz','PRB util. 15 MHz','%')
-
+    plt.legend (loc=0)
     if args.print:
         plt.savefig(args.print,dpi=300,bbox_inches='tight')
 

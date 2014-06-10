@@ -78,7 +78,7 @@ def main(args):
                           'Application th.',
                           'Application th. (15 MHz)',
                           'Mbit/s')
-    plt.legend(loc=0,prop={'size':10})
+    plt.legend(loc=0)
     plt.subplot2grid((2,3), (1,0),colspan=1)
     dpl.plot_density(df['Application throughput downlink'].dropna().apply(f_norm),x,
                      'App. th.','Mbit/s')

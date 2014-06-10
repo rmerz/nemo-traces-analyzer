@@ -83,7 +83,7 @@ def main(args):
                        'Spectral efficiency (PRB norm.)',
                        'Spectral efficiency',
                        'bit/s/Hz')
-    plt.legend(loc=0,prop={'size':10})
+    plt.legend(loc=0)
     plt.subplot2grid((2,2), (1,0),colspan=1)
     dpl.plot_density(df['SE'].replace([np.inf, -np.inf], np.nan).dropna(),x,
                      'Spectral efficiency','bit/s/Hz')
@@ -109,7 +109,7 @@ def main(args):
                            'Spectral efficiency 10 MHz (PRB util. norm.)\n',
                            'Spectral efficiency (PRB util. norm.)\n',
                            'bit/s/Hz')
-    plt.legend(loc=0,prop={'size':10})
+    plt.legend(loc=0)
     if args.print:
         plt.savefig(args.print[1],dpi=300,bbox_inches='tight')
 
@@ -120,7 +120,7 @@ def main(args):
                           'Spectral efficiency (PRB util. norm.)\n',
                           'Spectral efficiency (RB norm.)',
                           'bit/s/Hz')
-    plt.legend(loc=0,prop={'size':10})
+    plt.legend(loc=0)
     plt.subplot2grid((2,2), (1,0),colspan=1)
     dpl.plot_density(df['SE'].replace([np.inf, -np.inf], np.nan).dropna(),x,
                      'Spectral efficiency','bit/s/Hz')

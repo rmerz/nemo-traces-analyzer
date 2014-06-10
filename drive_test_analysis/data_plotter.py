@@ -59,10 +59,10 @@ def plot_scatter_pair(data_0a,data_1a,label_0a,label_1a,
                 label=label_1b+' vs '+label_0b)
 
     plt.grid()
-    plt.tick_params(axis='both', which='major', labelsize=9)
+    plt.tick_params(axis='both', which='major')
     #plt.xlabel(label_0+' [{}]'.format(unit_0))
     #plt.ylabel(label_1+' [{}]'.format(unit_1))
-    plt.legend(loc='upper left',prop={'size':10})
+    plt.legend(loc='upper left')
     plt.tight_layout()
 
 def plot_scatter(data_0,data_1,label_0,label_1,
@@ -75,10 +75,10 @@ def plot_scatter(data_0,data_1,label_0,label_1,
                 label=label_1+' vs '+label_0)
 
     plt.grid()
-    plt.tick_params(axis='both', which='major', labelsize=9)
+    plt.tick_params(axis='both', which='major')
     plt.xlabel(label_0+' [{}]'.format(unit_0))
     plt.ylabel(label_1+' [{}]'.format(unit_1))
-    plt.legend(loc='upper left',prop={'size':10})
+    plt.legend(loc='upper left')
     plt.tight_layout()
 
 def plot_ts(data_0,label_0,unit,marker_size=10,ylim=None):
@@ -91,9 +91,9 @@ def plot_ts(data_0,label_0,unit,marker_size=10,ylim=None):
     plt.grid()
     if ylim is not None:
         plt.ylim(ylim)
-    plt.tick_params(axis='both', which='major', labelsize=9)
+    plt.tick_params(axis='both', which='major')
     plt.ylabel(label_0+' [{}]'.format(unit))
-    plt.legend(loc='upper left',prop={'size':10})
+    plt.legend(loc='upper left')
     plt.tight_layout()
 
 def plot_ts_pair(data_0,data_1,label_0,label_1,unit,marker_size=10,ylim=None):
@@ -112,9 +112,9 @@ def plot_ts_pair(data_0,data_1,label_0,label_1,unit,marker_size=10,ylim=None):
     plt.grid()
     if ylim is not None:
         plt.ylim(ylim)
-    plt.tick_params(axis='both', which='major', labelsize=9)
+    plt.tick_params(axis='both', which='major')
     plt.xlabel(label_0+'/'+label_1+' [{}]'.format(unit))
-    plt.legend(loc='upper left',prop={'size':10})
+    plt.legend(loc='upper left')
     plt.tight_layout()
 
 def plot_ecdf(data,x,label,unit):
@@ -132,11 +132,11 @@ def plot_ecdf(data,x,label,unit):
              c='b',
              alpha=.3)
     plt.grid()
-    plt.tick_params(axis='both', which='major', labelsize=9)
+    plt.tick_params(axis='both', which='major')
     plt.xlabel(label+' [{}]'.format(unit))
     plt.ylabel('ECDF')
     plt.ylim([0,1.05])
-    plt.legend(loc='upper left',prop={'size':10})
+    plt.legend(loc='upper left')
     plt.tight_layout()
 
 def plot_ecdf_pair(data_0,
@@ -166,11 +166,11 @@ def plot_ecdf_pair(data_0,
              alpha=.3)
 
     plt.grid()
-    plt.tick_params(axis='both', which='major', labelsize=9)
+    plt.tick_params(axis='both', which='major')
     plt.xlabel(label_0+'/'+label_1+' [{}]'.format(unit))
     plt.ylabel('ECDF')
     plt.ylim([0,1.05])
-    plt.legend(loc='upper left',prop={'size':10})
+    plt.legend(loc='upper left')
     plt.tight_layout()
 
 def plot_ecdf_triplet(data_0,data_1,data_2,x,
@@ -207,7 +207,7 @@ def plot_ecdf_triplet(data_0,data_1,data_2,x,
              alpha=.3)
 
     plt.grid()
-    plt.tick_params(axis='both', which='major', labelsize=9)
+    plt.tick_params(axis='both', which='major')
     if plot_info:
         if label_0 is not None:
             plt.xlabel(label_0+'/'+label_1+'/'+label_2+' [{}]'.format(unit))
@@ -215,7 +215,7 @@ def plot_ecdf_triplet(data_0,data_1,data_2,x,
             plt.xlabel('[{}]'.format(unit))
         plt.ylabel('ECDF')
         plt.ylim([0,1.05])
-        plt.legend(loc='upper left',prop={'size':10})
+        plt.legend(loc='upper left')
     plt.tight_layout()
 
 def plot_ecdf_quad(data_0,data_1,data_2,data_3,x,
@@ -260,7 +260,7 @@ def plot_ecdf_quad(data_0,data_1,data_2,data_3,x,
              alpha=.3)
 
     plt.grid()
-    plt.tick_params(axis='both', which='major', labelsize=9)
+    plt.tick_params(axis='both', which='major')
     if plot_info:
         if label_0 is not None:
             plt.xlabel(label_0+'/'+label_1+'/'+label_2+'/'+label_3+' [{}]'.format(unit))
@@ -268,7 +268,7 @@ def plot_ecdf_quad(data_0,data_1,data_2,data_3,x,
             plt.xlabel('[{}]'.format(unit))
         plt.ylabel('ECDF')
         plt.ylim([0,1.05])
-        plt.legend(loc='upper left',prop={'size':10})
+        plt.legend(loc='upper left')
     plt.tight_layout()
 
 def plot_density(data,x,label,unit):
@@ -285,7 +285,7 @@ def plot_density(data,x,label,unit):
              color='b',
              alpha=.3)
     plt.grid()
-    plt.tick_params(axis='both', which='major', labelsize=9)
+    plt.tick_params(axis='both', which='major')
     plt.xlabel(label+' [{}]'.format(unit))
     plt.ylabel('Density')
     plt.tight_layout()
